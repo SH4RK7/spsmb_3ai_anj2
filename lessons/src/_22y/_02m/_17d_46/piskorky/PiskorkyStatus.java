@@ -1,8 +1,5 @@
 package _22y._02m._17d_46.piskorky;
 
-import javafx.collections.ObservableMap;
-import javafx.scene.control.Button;
-
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,6 +9,7 @@ public class PiskorkyStatus implements Serializable {
     int rozmerHraciPlochy;
     int nTah = 1;
     //int[][] herniPlochaHracu;
+    String vyherce = null;
     ArrayList<String> hraci;
     Map[][] herniTlacitka;
     //aktivni Hráč se zde automaticky inicializuje na 0 (LOJZA), netřeba inicializovat
@@ -25,8 +23,6 @@ public class PiskorkyStatus implements Serializable {
         // }
         this.herniTlacitka = new HashMap[this.rozmerHraciPlochy + 1][this.rozmerHraciPlochy + 1];
         this.hraci = new ArrayList<>();
-        this.hraci.add("Lojza");
-        this.hraci.add("Franta");
         //this.hraci.add("Pepa");
         this.inicializaceTlacitek();
     }
@@ -38,9 +34,12 @@ public class PiskorkyStatus implements Serializable {
                 this.herniTlacitka[i][j] = om;
                 om.put("i", Integer.valueOf(i));
                 om.put("j", Integer.valueOf(j));
-                om.put("player", Integer.valueOf(j == 2 ? 0 : -1));
+                om.put("player", Integer.valueOf(-1));
 
             }
         }
+    }
+    public void pridatHrace(String jmeno){
+        this.hraci.add(jmeno);
     }
 }

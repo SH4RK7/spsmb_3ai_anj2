@@ -12,13 +12,11 @@ public class PiskorkyServer {
     public static PiskorkyStatus ps;
 
     public static void main(String[] args) throws IOException {
-        PiskorkyServer.ps = new PiskorkyStatus(10);
+        PiskorkyServer.ps = new PiskorkyStatus(30);
         int port = 8081;
         int request = 0;
         ServerSocket listener = null;
         while (true) {
-
-
             try  {
                 listener = new ServerSocket(port);
                 System.out.printf("The started on port %d%n", port);
